@@ -1,0 +1,37 @@
+(defcfg
+  input  (iokit-name)
+  output (kext)
+
+  ;; This option tells KMonad to let non-configured keys act normal
+  fallthrough true
+)
+
+(defsrc
+    a    s    d    f    g    h    j    k    l    ;
+)
+
+(defalias
+    num_lay (layer-toggle numbers)
+
+    alt_a (tap-hold-next-release 200 a lalt)
+    ctl_s (tap-hold-next-release 200 s lctl)
+    met_d (tap-hold-next-release 200 d lmet)
+    sft_f (tap-hold-next-release 200 f lsft)
+
+    lay_g  (tap-hold-next-release 200 g @num_lay)
+    lay_h  (tap-hold-next-release 200 h @num_lay)
+
+    sft_j (tap-hold-next-release 200 j rsft)
+    met_k (tap-hold-next-release 200 k rmet)
+    ctl_l (tap-hold-next-release 200 l rctl)
+    alt_; (tap-hold-next-release 200 ; lalt)
+)
+
+(deflayer homerowmods
+    @alt_a   @ctl_s   @met_d   @sft_f   @lay_g   @lay_h @sft_j   @met_k   @ctl_l   @alt_;
+)
+
+(deflayer numbers
+    1    2    3    4    5    6    7    8    9    0
+)
+
